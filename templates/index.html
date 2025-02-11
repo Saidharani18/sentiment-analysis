@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            background: white;
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007BFF;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .score {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head> 
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form method="POST" action="/">
+            <input type="text" name="text" placeholder="Enter text here..." required>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if sentiment %}
+        <div class="result">
+            <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+            <p class="score"><strong>Polarity Score:</strong> {{ polarity }}</p>
+            <p class="score"><strong>Subjectivity Score:</strong> {{ subjectivity }}</p>
+        </div>
+        {% endif %}
+    </div>     
+</body>
+</html>
